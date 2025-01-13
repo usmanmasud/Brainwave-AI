@@ -1,5 +1,17 @@
-function App() {
-  return <h1 className="text-center text-red-500">usman</h1>;
-}
+import React from "react";
+import ButtonGradient from "./assets/assets/svg/ButtonGradient";
+import { Button } from "./components/Button";
 
-export default App;
+export const App = () => {
+  return (
+    <>
+      <h1></h1>
+      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+        <Button className="mt-10" href="#login">
+          Something
+        </Button>
+      </div>
+      <ButtonGradient />
+    </>
+  );
+};
