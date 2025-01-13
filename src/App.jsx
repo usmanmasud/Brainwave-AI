@@ -2,7 +2,7 @@ import React from "react";
 import ButtonGradient from "./assets/assets/svg/ButtonGradient";
 import { Button } from "./components/Button";
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <h1></h1>
@@ -15,3 +15,5 @@ export const App = () => {
     </>
   );
 };
+
+export default App;
