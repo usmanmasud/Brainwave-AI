@@ -24,7 +24,7 @@ export const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 bg-n-8/90 backdrop-blur-sm border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
+      className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${
         openNavigation ? "bg-n-8" : "bg-n-8/90 backdrop-blur-sm"
       }`}
     >
@@ -41,6 +41,7 @@ export const Header = () => {
           <div className="relative z-2 flex flex-col items-center justify-center m-auto lg:flex-row">
             {navigation.map((item) => (
               <a
+                onClick={handleClick}
                 key={item.id}
                 href={item.url}
                 className={`block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 ${
@@ -54,9 +55,8 @@ export const Header = () => {
                 {item.title}
               </a>
             ))}
-
-            <HambugerMenu />
           </div>
+          <HambugerMenu />
         </nav>
 
         <a
