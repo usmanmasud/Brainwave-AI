@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
 import Section from "./Section";
 import { curve, heroBackground, robot } from "../assets/assets";
 import { Button } from "./Button";
+import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
+import { heroIcons } from "../constants";
+import { ScrollParallax } from "react-just-parallax";
+import { Generating } from "./Generating";
 
 export const Hero = () => {
+  const paralaxRef = useRef(null);
+
   return (
     <Section
-      className="-mt-[5.25]"
+      className="pt-[12rem] -mt-[5.25rem]"
       crosses
       crossesOffset="lg:translate-y-[5.25rem]"
       customPaddings
       id="hero"
     >
-      <div className="container relative">
+      <div className="container relative" ref={paralaxRef}>
         <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
           <h1 className="h1 mb-6">
-            Explore the Possibilities of AI Chatting with Brainwave
+            Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {""}
             <span className="inline-block relative">
               Brainwave{" "}
               <img
@@ -48,8 +54,21 @@ export const Hero = () => {
                   height={490}
                   alt="AI"
                 />
+
+                <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
+                <ScrollParallax isAbsolutelyPositioned>
+                  <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
+                    {heroIcons.map((icon, index) => (
+                      <li className="p-5" key={index}>
+                        <img src={icon} width={24} height={25} alt="ICON" />
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollParallax>
               </div>
             </div>
+
+            <Gradient />
           </div>
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:-[138%] lg:-top-0[104%]">
             <img
@@ -60,8 +79,11 @@ export const Hero = () => {
               alt="HERO"
             />
           </div>
+
+          <BackgroundCircles />
         </div>
       </div>
+      <BottomLine />
     </Section>
   );
 };
