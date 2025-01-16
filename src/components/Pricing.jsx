@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
-import { smallSphere } from "../assets/assets";
+import { smallSphere, stars } from "../assets/assets";
+import Heading from "./Heading";
 
 const Pricing = () => {
   return (
@@ -14,7 +15,21 @@ const Pricing = () => {
             height={255}
             alt="Sphere"
           />
+          <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <img
+              src={stars}
+              className="w-full"
+              width={950}
+              height={400}
+              alt="stars"
+            />
+          </div>
         </div>
+
+        <Heading
+          tag="Get started with Brainwave"
+          title="Pay once, use forever"
+        />
       </div>
     </Section>
   );
